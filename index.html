@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jQuery — CDN -->
+    
+    
+    <!-- React — CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel — باش React يفهم JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .timeline { position: relative; padding-left: 1.5rem; }
+        .timeline::before {
+          content: ''; position: absolute; left: 0;
+          top: 8px; bottom: 8px; width: 2px;
+          background: #403580;
+        }
+        .timeline-item {
+          position: relative; margin-bottom: 2rem;
+          padding-left: 2rem; cursor: pointer;
+        }
+        .timeline-dot {
+          position: absolute; left: -2.1rem; top: 6px;
+          width: 14px; height: 14px; border-radius: 50%;
+          background: rgb(245, 241, 253); border: 2px solid #454166;
+          transition: all 0.3s;
+        }
+        .timeline-item.active .timeline-dot {
+          background: #010031;
+          border-color: #09003b;
+          box-shadow: 0 0 0 4px rgba(0, 1, 49, 0.2);
+        }
+        .timeline-date {
+          font-size: 0.75rem; font-weight: 600;
+          color: #01003d; margin-bottom: 0.2rem;
+          text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .tl-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .timeline-title {
+          font-size: 1.1rem; color: #0f172a;
+        }
+        .timeline-school { font-size: 0.88rem; color: #000f2c; }
+        .tl-toggle {
+          background: none; border: none;
+          color: #6b7280; cursor: pointer;
+          font-size: 0.9rem;
+          transition: transform 0.3s;
+        }
+        .timeline-item.active .tl-toggle {
+          transform: rotate(180deg);
+          color: #010049;
+        }
+        .timeline-body {
+          display: none; margin-top: 0.7rem;
+          font-size: 0.9rem; color: #00153f;
+          line-height: 1.8; padding: 0.9rem 1rem;
+          background: #f4f3f8; border-radius: 8px;
+          border-left: 3px solid #010042;
+        } 
+        
+    </style>
+</head>
+<body>
+    <nav>
+      <div class="Logo">hassna-Larhzil</div>
+      <ul class="nav-links">
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#formations">Formations</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="header">
+        <img src="pic.png" alt="profil picture">
+        <h1 class="full-name">Hassna<br>Larhzil</h1>
+        <p class="prof-title">Etudiant en Licence L2 - Science Informatique </p>
+    </section>
+    <section id="Links">
+        <a href="larhzilhassna@gmail.com" class="contact-chip" >
+            <i class="fab fa-envelope"></i>larhzilhassna@gmail.com
+        </a>
+
+        <a href="https://www.linkedin.com/in/hassna-larhzil" target="_blank" class="contact-chip">
+            <i class="fab fa-linkedin"></i>LinkedIn
+        </a>
+
+        <a href="https://github.com/HASSNA2603" target="_blank" class="contact-chip">
+            <i class="fab fa-github"></i>GitHub
+        </a>
+    </section>
+    <section id="apropos">
+        <div class="about-bio">
+            <p>
+              Je suis <strong>Hassna Larhzil</strong>, étudiante en deuxième année de 
+              Licence en Sciences Informatiques à l'Université Cadi Aayad semlalia -FSSM- de Marrakech . 
+               Après l'obtention de mon Baccalauréat en Sciences Physiques en 2023, 
+              j'ai choisi de me orienter vers l'informatique, un domaine qui me passionne profondément.
+            </p>
+            <p>
+              Mes centres d'intérêt couvrent plusieurs domaines complémentaires : 
+              le <strong>développement web</strong>, la <strong>cybersécurité</strong>, 
+              l'<strong>intelligence artificielle</strong> et la <strong>data analysis</strong>. 
+              Cette diversité me permet d'avoir une vision globale et complète du monde numérique.
+            </p>
+            <p>
+              Mes aspirations professionnelles sont de travailler dans le domaine de
+               l'informatique, plus précisément dans le développement web, l'analyse de données 
+               ou la cybersécurité. Je souhaite contribuer à des projets innovants et fiables, 
+               tout en continuant à apprendre et à évoluer dans un environnement technique exigeant.
+            </p>
+        </div>
+    </section>
+    <section id="competences">
+        <div class="contenu">
+            <p class="sous-titre">Savoir-faire</p>
+            <h2 class="title">Compétences</h2>
+            <div class="ligne"></div>
+    
+            <!-- Compétences techniques -->
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">HTML / CSS</span>
+                  <span class="pourcentage">75%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-width="75"></div>
+                </div>
+           </div>
+    
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="pourcentage">60%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-width="60"></div>
+                </div>
+            </div>
+    
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">jQuery</span>
+                  <span class="pourcentage">40%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-width="40"></div>
+                </div>
+            </div>
+    
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">ReactJS</span>
+                  <span class="pourcentage">40%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="pourcentage" data-width="40"></div>
+                </div>
+            </div>
+    
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">MySQL</span>
+                  <span class="pourcentage">60%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-width="60"></div>
+                </div>
+            </div>
+    
+            <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">C / C++</span>
+                  <span class="pourcentage">60%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-width="60"></div>
+                </div>
+            </div>
+    
+            <!-- Soft Skills -->
+            <div class="tags-cloud">
+              <span class="tag">Travail en équipe</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Créativité</span>
+              <span class="tag">Adaptabilité</span>
+              <span class="tag">Résolution de problèmes</span>
+              <span class="tag">Curiosité</span>
+              <span class="tag">Autonomie</span>
+            </div>
+    
+        </div>
+    </section>
+    <section id="formation">
+        <div class="contenu">
+            <h2 class="title">Parcours académique</h2>
+            <div class="ligne"></div>
+            <div class="timeline">
+              <!-- L2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-date">2026 — En cours</p>
+                    <div class="tl-head">
+                        <div>
+                          <h3 class="timeline-title">Licence Sciences Informatiques — L2 (Deug)</h3>
+                          <p class="timeline-school">FSSM — Université Cadi Ayyad, Marrakech</p>
+                        </div>
+                        <button class="tl-toggle"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="timeline-body">2éme années science informatique en faculté des Sciences semlalia "FSSM — Université Cadi Ayyad" , Marrakech</div>
+                </div>
+                <!-- BAC -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-date">2023</p>
+                    <div class="tl-head">
+                        <div>
+                            <h3 class="timeline-title">Baccalauréat Sciences Physiques</h3>
+                            <p class="timeline-school">Lycée Moulay Ismail, El Kelaa des Sraghna</p>
+                        </div>
+                        <button class="tl-toggle"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="timeline-body">
+                        Baccalauréat obtenu en Sciences Physiques.
+                        Spécialisation en mathématiques, physique et chimie.
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <section id="projets">
+      <div class="contenu">
+        <p class="sous-titre">Réalisations</p>
+        <h2 class="title">Projets</h2>
+        <div class="ligne"></div>
+        <div id="react-projects"></div>
+      </div>
+
+      </section>
+    </section>
+    <section id="contact">
+      <div class="contenu"></div>
+      <div class="contact-aside">
+        <h2 class="title">Contact</h2>
+        <div class="ligne"></div>
+        <p>N'hésitez pas à me contacter </p>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-info-text">
+            <span>Email</span>
+            <a href="">Mon email</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="contact-info-text">
+            <span>Linkedin</span>
+            <a href="https://www.linkedin.com/in/hassna-larhzil">Linkedin.com/in/hassna-larhzil</a>
+          </div>  
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <div class="contact-info-text">
+            <span>Github</span>
+            <a href="https://github.com/HASSNA2603">github.com/HASSNA2603</a>
+          </div>
+        </div>
+      </div>
+      <div id="contact-form-root"></div>
+    </section>
+    <div id="root"></div>
+   
+    <footer>
+      <p>© 2026 <span>Hassna Larhzil </span> -Tous droits réservés</p>
+    </footer>
+    <script type="text/babel">
+
+      const projectsData = [
+        {
+          id : 1,
+          title : "",
+          description:"",
+          techs:"",
+          github:"",
+        },
+        {
+          id : 1,
+          title : "",
+          description:"",
+          techs:"",
+          github:"",
+        }
+      ];
+      function ProjectCard({ project }){
+
+      }
+      function ProjectList(){
+
+      }
+
+      function ContactForm(){
+        const handleSubmit = () => {
+          let valid = true;
+          
+          const nom =$('#nom').val().trim();
+          const email =$('#email').val().trim();
+          const message =$('#message').val().trim();
+          const emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!nom) {
+          $('#error-nom').text('Le nom est requis.').show();
+          valid = false;
+        } else {
+          $('#error-nom').hide();
+        }
+
+        if (!email || !emailRegex.test(email)) {
+          $('#error-email').text('Veuillez entrer un email valide.').show();
+          valid = false;
+        } else {
+          $('#error-email').hide();
+        }
+
+        if (!message) {
+          $('#error-message').text('Le message est requis.').show();
+          valid = false;
+        } else {
+          $('#error-message').hide();
+        }
+
+        if (valid) {
+          $('.form-success').fadeIn();
+          $('#nom').val('');
+          $('#email').val('');
+          $('#message').val('');
+        }
+      };
+
+      return (
+        <div id="contact-form-root">
+          <div className="form-group">
+            <label htmlFor="nom">Nom complet</label>
+            <input type="text" id="nom" placeholder="Votre nom" />
+            <span className="form-error" id="error-nom"></span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder="votre@email.com" />
+            <span className="form-error" id="error-email"></span>
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Votre message..."></textarea>
+            <span className="form-error" id="error-message"></span>
+          </div>
+          <button className="btn-submit" onClick={handleSubmit}>
+            Envoyer le message
+          </button>
+          <div className="form-success">
+            ✓ Message envoyé avec succès ! Je vous répondrai bientôt.
+          </div>
+        </div>
+      );
+    }
+
+    // ---- Montage React ----
+    const projectsRoot = ReactDOM.createRoot(document.getElementById('react-projects'));
+    projectsRoot.render(<ProjectsList />);
+
+    const contactRoot = ReactDOM.createRoot(document.getElementById('contact-form-root'));
+    contactRoot.render(<ContactForm />);
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        //scroll barres
+        function animateSkills() {
+          $('.skill-bar-fill').each(function () {
+            var bar = $(this);
+            var sectionTop = bar.offset().top;
+            var windowBottom = $(window).scrollTop() + $(window).height();
+            if (windowBottom > sectionTop && !bar.hasClass('animated')) {
+              bar.addClass('animated');
+              bar.animate({ width: bar.data('width') + '%' }, 1200);
+            }
+          });
+        }
+        $(window).on('scroll', animateSkills);
+        // Accordéon Formation
+        $('.timeline-item').on('click', function () {
+          var isActive = $(this).hasClass('active');
+          $('.timeline-item').removeClass('active');
+          $('.timeline-body').slideUp(300);
+          if (!isActive) {
+            $(this).addClass('active');
+            $(this).find('.timeline-body').slideDown(300);
+          }
+        });
+    </script>
+</body>
+</html>

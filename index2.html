@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassna-Larhzil CV </title>
+    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            line-height: 1.6;
+            color: #333;
+            background:#f6fdf8;
+        }
+        h2{
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        #title{
+            color: #1e3a2f;
+        }
+        section{
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+        header{
+            text-align: center;
+            background: #f5f5f5;
+            padding: 80px 20px;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .name{
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .etude{
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+        .skills-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .skill-item{
+            flex: 1 1 300px;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .skill-item span{
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .progress-bar{
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .progress-fill{
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #066929, #06a520);
+            border-radius: 6px;
+        }
+        .accordion {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .accordion-btn {
+            width: 100%;
+            padding: 15px 20px;
+            background: #f5f5f5;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .accordion-btn :hover{
+            background: #e8e8e8;
+        }
+        .accordion-content{
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease ;
+        }
+        .accordion-content p{
+            padding: 15px 0;
+        }
+
+        .projects-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+
+
+
+
+
+
+        form{
+            max-width: 600px;
+            margin: auto;
+        }
+        input, textarea, button{
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        button{
+            background: gray;
+            color: #222;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        button:hover{
+            background: black;
+        }
+        @media(max-width: 768px){
+            header h1{
+                font-size: 2rem;
+            }
+            .skill-container{
+                flex-direction: column;
+            }
+            .skill-item{
+                flex: 1 1 100%;
+            }
+            section{
+                padding: 40px 15px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Hassna-Larhzil</div>
+        <ul class="nav-links">
+            <li><a href="#header">Accueil</a></li>
+            <li><a href="#about">A propos</a></li>
+            <li><a href="#Skills">Compétences</a></li>
+            <li><a href="#formation">Formations</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contacts">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="header">
+ 
+        <img src="photo.JPG" alt="Photo de profil">
+        <div class="text"></div>
+        <h1 class="name">Hassna Larhzil</h1>
+        <h2 class="etude">Etudiant en Licence L2 - Science Informatique</h2>
+        <div class="user-contacts">
+            <a href="larhzilhassna@gmail.com" target="_blank"><i class="fas fa-envelope"></i>Email</a>
+            <a href="https://www.linkedin.com/in/hassna-larhzil" target="_blank">
+                <i class="fab fa-linkedin" ></i>LinkedIn
+            </a>
+            <a href="https://github.com/HASSNA2603" target="_blank"><i class="fab fa-github"></i>Github</a>
+            <span><i class="fas fa-map-marker-alt"></i>" Marrakech, Maroc "</span>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 id="title">A propos</h2>
+        <p>
+            Je suis <strong>Hassna Larhzil</strong>, étudiante en deuxième année de 
+            Licence en Sciences Informatiques à l'Université Cadi Aayad semlalia -FSSM- de Marrakech . 
+             Après l'obtention de mon Baccalauréat en Sciences Physiques en 2023, 
+            j'ai choisi de me orienter vers l'informatique, un domaine qui me passionne profondément.
+        </p>
+        <p>
+            Mes centres d'intérêt couvrent plusieurs domaines complémentaires : 
+            le <strong>développement web</strong>, la <strong>cybersécurité</strong>, 
+            l'<strong>intelligence artificielle</strong> et la <strong>data analysis</strong>. 
+            Cette diversité me permet d'avoir une vision globale et complète du monde numérique.
+        </p>
+        <p>
+            Mes aspirations professionnelles sont de travailler dans le domaine de
+             l'informatique, plus précisément dans le développement web, l'analyse de données 
+             ou la cybersécurité. Je souhaite contribuer à des projets innovants et fiables, 
+             tout en continuant à apprendre et à évoluer dans un environnement technique exigeant.
+        </p>
+        
+    </section>
+
+    <section id="Skills">
+        <h2 id="title">Compétences</h2>
+        <div class="skills-container">
+            <div class="skill-group">
+                <h3><i class="fas fa-code"></i>Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>HTML/CSS</span>
+                        <span class="skill-pct">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div><!--progress bar JQuery--> 
+                    </div>  
+                 
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>JavaScript</span>
+                        <span class="skill-pct">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div> 
+                    </div> 
+                    
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>ReactJS</span>
+                        <span class="skill-pct">45%</span>
+                    </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="45"></div>
+                          
+                    </div>
+                    
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>jQuery</span>
+                        <span class="skill-pct"></span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="45"></div>
+                        </div> 
+                    </div>
+                </div> 
+            </div>
+            <!--Backend-->
+            <div class="skill-group">
+                <h3><i class="fas fa-server"></i>Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>MySQL</span>
+                        <span class="skill-pct">60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="60"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>GitHub</span>
+                        <span class="skill-pct">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="65"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-server"></i>autre language</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>C</span>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="70"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>C++</span>
+                        <span class="skill-pct">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formation">
+        <h2 id="title">Parcours académique</h2>
+        <div class="accordion">
+            <button  type="button" class="accordion-btn">Licence Sciences Informatiques-L2 (Deug) 2026-en cours</button>
+            <div class="accordion-content">
+                <p>2éme années science informatique en faculté des Sciences semlalia "FSSM — Université Cadi Ayyad" , Marrakech</p>
+            </div>
+        </div >
+        <div class="accordion">
+            <button  type="button" class="accordion-btn">Baccalauréat Sciences Physiques en 2023</button>
+            <div class="accordion-content">
+                <p>Lycée Moulay Ismail, El Kelaa des Sraghna</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 id="title">Expériences & Projects</h2>
+        <div id="root"></div><!--react render compenents-->
+    </section>
+
+    <section id="contacts">
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Nom Complet" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2025 <span>Hassna Larhzil</span> — Tous droits réservés</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let skillsAnimated =false;
+            $(window).on('scroll',function(){
+                let skillTop =$('#Skills').offset().top - $(window).height() + 100;
+                if($(window).scrollTop() > skillTop && !skillsAnimated){
+                  $('.progress-fill').each(function(){
+                    let width = $(this).data('width');
+                    $(this).animate({width: width + '%'}, 1500);
+                  });
+                  skillsAnimated = true;
+               }
+           });
+
+            // 2. Accordion Formation
+            $('.accordion-btn').click(function(){
+           let content = $(this).next('.accordion-content');
+  
+           if(content.css('max-height') !== '0px'){
+             content.css('max-height', '0px');
+             $(this).removeClass('active');
+           } else {
+             content.css('max-height', content[0].scrollHeight + 'px');
+             $(this).addClass('active');
+           }
+           });
+            // 3. Contact Form Validation
+            $('#contact-form').on('submit', function(e){
+              e.preventDefault();
+              let name = $('#name').val().trim();
+              let email = $('#email').val().trim();
+              let message = $('#message').val().trim();
+              
+              if(name === '' || email === '' || message === ''){
+                alert('Veuillez remplir tous les champs');
+                return;
+              }
+              if(!email.includes('@') || !email.includes('.')){
+                alert('Email invalide');
+                return;
+              }
+              alert('Message envoyé avec succès !');
+              this.reset();
+            });
+
+        });
+    </script>
+    <script type="text/babel">
+        const projects = [
+            {title: "The FAHS book sotre", desc:"website avec HTML, CSS, JavaScript"},
+            {title: "THE Little BiG Hero Game ", desc:"Game avec SFML library et C++ language "},  
+        ];
+
+        function ProjectCard({title,desc}){
+            return(
+                <div style={{border:'1px solid #ddd', padding:'20px',borderRadius:'8px', background:'#fff'}}>
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
+                </div>
+            );
+        }
+        
+        function App() {
+            return(
+                <div className="projects-grid">
+                    {projects.map((p,i)=> <ProjectCard key={i} title={p.title} desc={p.desc}/>)}    
+                </div>
+            );
+        }
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
